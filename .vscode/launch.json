@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug hello",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/level-one.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Skip system library sources",
+                    "text": "set auto-load safe-path /"
+                }
+            ],
+            "stopAtEntry": false,
+        }
+    ]
+}
