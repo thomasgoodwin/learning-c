@@ -4,3 +4,7 @@
 sudo apt update
 sudo apt install build-essential gdb
 ```
+
+## Level Zero
+gcc src/level-zero/main.c -o build/level-zero.exe
+./build/level-zero.exe 1
