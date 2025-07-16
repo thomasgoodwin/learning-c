@@ -1,16 +1,22 @@
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g
 
-TARGET = build/level-one.exe
-SRC = src/level-one/main.c
+LEVELS = level-zero level-one level-two level-three
 
-all: $(TARGET)
+.PHONY: all clean run $(LEVELS)
 
-$(TARGET): $(SRC)
-	$(CC) -g $(CFLAGS) -o $(TARGET) $(SRC)
+all: $(LEVELS)
 
-run: 
-	$(TARGET)
+$(LEVELS):
+	@mkdir -p build
+	$(CC) $(CFLAGS) -o build/$@.exe src/$@/main.c
+
+run:
+	@if [ -z "$(LEVEL)" ]; then \
+		echo "Usage: make run LEVEL=level-one"; \
+	else \
+		./build/$(LEVEL).exe; \
+	fi
 
 clean:
-	rm -f $(TARGET)
+	rm -rf build
