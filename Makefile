@@ -15,7 +15,7 @@ run:
 	@if [ -z "$(LEVEL)" ]; then \
 		echo "Usage: make run LEVEL=level-one"; \
 	else \
-		./build/$(LEVEL).exe; \
+		./build/$(LEVEL).exe $(ARG); \
 	fi
 
 clean:
